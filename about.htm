@@ -24,6 +24,9 @@
           href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Gideon+Roman&family=Poppins:wght@400;500;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&display=swap"
           rel="stylesheet"
         />
+
+        <link rel="stylesheet" href="css/bootstrap.min.about.css" />
+        <link rel="stylesheet" href="css/new.css">
       </head>
 </head>
 <body>
@@ -42,8 +45,8 @@
   
           <nav id="navmenu" class="navmenu">
             <ul>
-              <li><a href="#hero" class="active">Home</a></li>
-              <li><a href="about.htm">About</a></li>
+              <li><a href="index.htm">Home</a></li>
+              <li><a href="about.htm"  class="active">About</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#pricing">Blog</a></li>
               <!---
@@ -92,8 +95,9 @@
                     </div>
     
                     <h1 class="mb-4">
-                      Adapting to <br />Evolving Business
-                      <span class="accent-text">Needs</span>
+                        Data-Driven 
+                      <span class="accent-text"> Financial Strategies
+                    </span>
                     </h1>
     
                     <p class="mb-4 mb-md-5">
@@ -209,6 +213,363 @@
             </div>
           </section>
           <!-- /Hero Section -->
+
+           <!-- Stats Section -->
+      <section id="stats" class="stats section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row gy-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                  <span class="number purecounter" data-target="232">0</span>
+                <p>Clients</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+            
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span class="number purecounter" data-target="521">0</span>
+                <p>Projects</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span class="number purecounter" data-target="1453">0</span>
+                <p>Hours Of Support</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span class="number purecounter" data-target="32">0</span>
+                <p>Workers</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+          </div>
+        </div>
+      </section>
+
+      <script>
+        const counters = document.querySelectorAll('.number');
+        
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / 100;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            
+            updateCount();
+        });
+    </script>
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div
+            class="row content justify-content-center align-items-center position-relative"
+          >
+            <div class="col-lg-8 mx-auto text-center">
+              <h2 class="display-4 mb-4">
+                Who We Are
+             </h2>
+              <p class="mb-4">
+                Our journey began with the belief that clarity and adaptability are key to building a resilient organization. Sanath, our founder, brings in experience working with diverse businesses, helping them navigate financial challenges, uncover growth opportunities, and achieve sustainable success.
+                
+              </p>
+              <a href="#" class="btn btn-cta">Learn More</a>
+            </div>
+
+            <!-- Abstract Background Elements -->
+            <div class="shape shape-1">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M47.1,-57.1C59.9,-45.6,68.5,-28.9,71.4,-10.9C74.2,7.1,71.3,26.3,61.5,41.1C51.7,55.9,35,66.2,16.9,69.2C-1.3,72.2,-21,67.8,-36.9,57.9C-52.8,48,-64.9,32.6,-69.1,15.1C-73.3,-2.4,-69.5,-22,-59.4,-37.1C-49.3,-52.2,-32.8,-62.9,-15.7,-64.9C1.5,-67,34.3,-68.5,47.1,-57.1Z"
+                  transform="translate(100 100)"
+                ></path>
+              </svg>
+            </div>
+
+            <div class="shape shape-2">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M41.3,-49.1C54.4,-39.3,66.6,-27.2,71.1,-12.1C75.6,3,72.4,20.9,63.3,34.4C54.2,47.9,39.2,56.9,23.2,62.3C7.1,67.7,-10,69.4,-24.8,64.1C-39.7,58.8,-52.3,46.5,-60.1,31.5C-67.9,16.4,-70.9,-1.4,-66.3,-16.6C-61.8,-31.8,-49.7,-44.3,-36.3,-54C-22.9,-63.7,-8.2,-70.6,3.6,-75.1C15.4,-79.6,28.2,-58.9,41.3,-49.1Z"
+                  transform="translate(100 100)"
+                ></path>
+              </svg>
+            </div>
+
+            <!-- Dot Pattern Groups -->
+            <div class="dots dots-1">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <pattern
+                  id="dot-pattern"
+                  x="0"
+                  y="0"
+                  width="20"
+                  height="20"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <circle cx="2" cy="2" r="2" fill="currentColor"></circle>
+                </pattern>
+                <rect width="100" height="100" fill="url(#dot-pattern)"></rect>
+              </svg>
+            </div>
+
+            <div class="dots dots-2">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <pattern
+                  id="dot-pattern-2"
+                  x="0"
+                  y="0"
+                  width="20"
+                  height="20"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <circle cx="2" cy="2" r="2" fill="currentColor"></circle>
+                </pattern>
+                <rect
+                  width="100"
+                  height="100"
+                  fill="url(#dot-pattern-2)"
+                ></rect>
+              </svg>
+            </div>
+
+            <div class="shape shape-3">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M43.3,-57.1C57.4,-46.5,71.1,-32.6,75.3,-16.2C79.5,0.2,74.2,19.1,65.1,35.3C56,51.5,43.1,65,27.4,71.7C11.7,78.4,-6.8,78.3,-23.9,72.4C-41,66.5,-56.7,54.8,-65.4,39.2C-74.1,23.6,-75.8,4,-71.7,-13.2C-67.6,-30.4,-57.7,-45.2,-44.3,-56.1C-30.9,-67,-15.5,-74,0.7,-74.9C16.8,-75.8,33.7,-70.7,43.3,-57.1Z"
+                  transform="translate(100 100)"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Call To Action Section -->
+    <!-- About Start -->
+     <section class="about">
+    <div class="container-xxl py-6">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
+                    <img class="img-fluid" src="assets/img/Seminar-pana.svg">
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="d-inline-block border rounded-pill text-color px-4 mb-3">About Us</div>
+                    <h2 class="mb-4">How We Work</h2>
+                    <p class="mb-4">We believe in solutions rooted in practicality. By carefully analyzing your current operations, we identify areas where small changes can have a big impact. This includes creating financial strategies, improving cost management, and preparing for the future, our approach is suitable to meet the unique needs of your business. Every recommendation is clear, actionable, and designed to deliver measurable results.
+                    </p>
+                    
+                    <a class="btn btn-primary me-0 me-sm-2 mx-1" href="">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!-- About End -->
+
+
+   
+ <!-- Testinomial Section -->
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials section light-background">
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+              <h2>Testimonials</h2>
+              <p>
+                Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
+                consectetur velit
+              </p>
+            </div>
+            <!-- End Section Title -->
+    
+            <div class="container">
+              <div class="row g-5">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                  <div class="testimonial-item">
+                    <img
+                      src="assets/img/testimonials/testimonials-1.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Saul Goodman</h3>
+                    <h4>Ceo &amp; Founder</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                      ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                      ><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p>
+                      <i class="bi bi-quote quote-icon-left"></i>
+                      <span
+                        >Proin iaculis purus consequat sem cure digni ssim donec
+                        porttitora entum suscipit rhoncus. Accusantium quam,
+                        ultricies eget id, aliquam eget nibh et. Maecen aliquam,
+                        risus at semper.</span
+                      >
+                      <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+                  </div>
+                </div>
+                <!-- End testimonial item -->
+    
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                  <div class="testimonial-item">
+                    <img
+                      src="assets/img/testimonials/testimonials-2.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Sara Wilsson</h3>
+                    <h4>Designer</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                      ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                      ><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p>
+                      <i class="bi bi-quote quote-icon-left"></i>
+                      <span
+                        >Export tempor illum tamen malis malis eram quae irure esse
+                        labore quem cillum quid cillum eram malis quorum velit fore
+                        eram velit sunt aliqua noster fugiat irure amet legam anim
+                        culpa.</span
+                      >
+                      <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+                  </div>
+                </div>
+                <!-- End testimonial item -->
+    
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                  <div class="testimonial-item">
+                    <img
+                      src="assets/img/testimonials/testimonials-3.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Jena Karlis</h3>
+                    <h4>Store Owner</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                      ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                      ><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p>
+                      <i class="bi bi-quote quote-icon-left"></i>
+                      <span
+                        >Enim nisi quem export duis labore cillum quae magna enim
+                        sint quorum nulla quem veniam duis minim tempor labore quem
+                        eram duis noster aute amet eram fore quis sint minim.</span
+                      >
+                      <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+                  </div>
+                </div>
+                <!-- End testimonial item -->
+    
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                  <div class="testimonial-item">
+                    <img
+                      src="assets/img/testimonials/testimonials-4.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Matt Brandon</h3>
+                    <h4>Freelancer</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                      ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                      ><i class="bi bi-star-fill"></i>
+                    </div>
+                    <p>
+                      <i class="bi bi-quote quote-icon-left"></i>
+                      <span
+                        >Fugiat enim eram quae cillum dolore dolor amet nulla culpa
+                        multos export minim fugiat minim velit minim dolor enim duis
+                        veniam ipsum anim magna sunt elit fore quem dolore labore
+                        illum veniam.</span
+                      >
+                      <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+                  </div>
+                </div>
+                <!-- End testimonial item -->
+              </div>
+            </div>
+          </section>
+
+      <!-- /Stats Section -->
       </main>
+      <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h2>CALVENT</h2>
+            <p>
+              A108 Adam Street <br />
+              New York, NY 535022
+            </p>
+            <p><strong>Phone:</strong> +1 5589 55488 55</p>
+            <p><strong>Email:</strong> info@example.com</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-x-twitter"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+  
+          <div class="footer-section">
+            <h3>Useful Links</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+  
+          <div class="footer-section">
+            <h3>Hic solutasept</h3>
+            <ul>
+              <li><a href="#">Molestiae accusamus iure</a></li>
+              <li><a href="#">Excepturi dignissimos</a></li>
+              <li><a href="#">Suscipit distinctio</a></li>
+              <li><a href="#">Dilecta</a></li>
+              <li><a href="#">Sit quas consectetur</a></li>
+            </ul>
+          </div>
+  
+          <div class="footer-section">
+            <h3>Nobis illum</h3>
+            <ul>
+              <li><a href="#">Ipsam</a></li>
+              <li><a href="#">Laudantium dolorum</a></li>
+              <li><a href="#">Dinera</a></li>
+              <li><a href="#">Trodela</a></li>
+              <li><a href="#">Flexo</a></li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="footer-bottom">
+          <p>&copy; Copyright <strong>CALVENT</strong> All Rights Reserved</p>
+        </div>
+      </footer>
+  
 </body>
 </html>

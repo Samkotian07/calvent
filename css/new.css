@@ -1,0 +1,100 @@
+
+
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root {
+    --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+    --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
+    --heading-color: black; /* Color for headings, subheadings and title throughout the website */
+    --accent-color: #752995; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+    --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+    --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  }
+
+  /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+    --nav-color: #212529; /* The default color of the main navmenu links */
+    --nav-hover-color: #752995; /* Applied to main navmenu links when they are hovered over or active */
+    --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+    --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+    --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
+    --nav-dropdown-hover-color: #0d83fd; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  }
+
+/* Fonts */
+:root {
+    --default-font: "Smooch Sans", serif;
+    --heading-font:"Smooch Sans", serif;
+    --nav-font: "Inter", sans-serif;
+  }
+
+  :root {
+    scroll-behavior: smooth;
+  }
+
+
+/********** CSS **********/
+:root {
+    --primary: #00B98E;
+    --light: #F3F6F8;
+    --dark: #0E2E50;
+}
+
+/*** Service ***/
+.py-6{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+.about{
+    background: radial-gradient(
+        circle at 90% 10%,
+        color-mix(in srgb, var(--accent-color), transparent 92%),
+        transparent 40%
+      );
+}
+.service-item {
+    box-shadow: 0 0 45px rgba(0, 0, 0, .07);
+    border: 1px solid transparent;
+    transition: .5s;
+}
+
+.service-item:hover {
+    box-shadow: none;
+    border-color: var(--primary);
+}
+
+
+.about .btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--contrast-color);
+    padding: 0.75rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .about .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--accent-color), black 20%);
+    border-color: color-mix(in srgb, var(--accent-color), black 20%);
+  }
+  
+  .about .btn-link {
+    color: var(--heading-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .about .btn-link:hover {
+    color: var(--accent-color);
+  }
+  
+  .about .btn-link i {
+    font-size: 1.5rem;
+    vertical-align: middle;
+  }
+
+ .text-color{
+    color: var(--accent-color);
+ }
