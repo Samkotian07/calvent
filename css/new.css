@@ -107,11 +107,11 @@
                 width: 100%;
                 height: 60vh;
                 background: linear-gradient(to right, 
-                #e8b838,#752995);
+                #e1dfd7,#752995);
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                color: white;
+                color: #F3F6F8;
                 text-align: center;
                 overflow: hidden;
               }
@@ -142,7 +142,8 @@
                 bottom: 0;
                 width: 100%;
                 height: 80px;
-                background: white;
+                background:  linear-gradient(to right, 
+               #752995, #e1d9d7);;
                 transform: skewY(-3deg);
                 transform-origin: top left;
               }
@@ -151,7 +152,9 @@
   justify-content: center;
 }
  .faq-container {
-  width: 90%;
+  width: 50%;
+  position: relative;
+  left: 28%;
 }
 .faq-item {
   margin-bottom: 10px;
@@ -163,13 +166,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(90deg, #6a99ff,#752995);
+  background: #752995;
   color: #fff;
   padding: 15px;
   cursor: pointer;
 }
 .faq-title:hover {
-  background: linear-gradient(90deg, #5a89ee,#752995);
+  background:#400e55;
 }
 .faq-title span {
   font-size: 1.2em;
@@ -191,4 +194,18 @@
 .faq-content.open {
   max-height: 150px; /* Adjust this value based on the content */
   padding: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .faq-container {
+    width: 85%;
+    left: 9%;
+  }
+  .nav-links{
+    top:156px;
+  }
+ .ftco-section .rel{
+  width: 20%;
+ }
+
 }
