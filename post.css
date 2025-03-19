@@ -1,0 +1,28 @@
+.post .post-img{
+    position: relative;
+    left: 16%;
+   align-items: center;
+}
+
+.post .contact-form{
+    margin-top: 5%;
+    position: relative;
+    left: 23%;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px){
+    .post .post-img{
+        position: relative;
+        left: 0%;
+        width: 100%;
+    }
+    .post .contact-form{
+        position: relative;
+        left: 0%;
+    }
+    .main .nav-links{
+        display: none;
+    }
+    
+}
