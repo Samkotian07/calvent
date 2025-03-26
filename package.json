@@ -5,8 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "node fetchPosts.js && node generatePostsJson.js",
-    "build": "your_existing_build_command"
-  },
+    "build": "cp -r * dist/"
+    },
   "author": "",
   "license": "ISC",
   "description": "",
