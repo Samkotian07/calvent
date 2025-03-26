@@ -88,13 +88,8 @@
       <section class="">
         <div class="container">
           <div class="row">
-            <div id="blog-container" class="blog-container">
-              <div class="blog-card">
-                <!-- Blog card content -->
-              </div>
-              <div class="blog-card">
-                <!-- Blog card content -->
-              </div>
+            <div class="blog-container"  id="blog-posts">
+              <!-- Blog cards will be injected here by JavaScript -->
               <!-- More blog cards -->
             </div>
           </div>
@@ -167,6 +162,33 @@
       </div>
     </footer>
     <script src="assets/js/main.js"></script>
-    <script src="blog.js"></script>
-  </body>
+    <script>
+      // Fetch the posts data from posts.json
+      fetch('data/posts.json')
+        .then(response => response.json())
+        .then(posts => {
+          const postsContainer = document.getElementById('blog-posts');
+          posts.forEach(post => {
+            // Create a blog card for each post
+            const postCard = document.createElement('div');
+            postCard.classList.add('post-card');
+          
+            // Set up the card content
+            postCard.innerHTML = `
+              <div class="blog-card">
+              <img width="10%" src="${post.featured_image}" alt="" class="featured-image">
+                <div class="blog-info" >
+                  <p>${post.date}</p>
+                  <h3><a href="blog-single.html?post=${encodeURIComponent(post.file)}">${post.title}</a></h3>
+                  <a href="blog-single.html?post=${encodeURIComponent(post.file)}" class="read-more">Read More</a>
+                </div>
+              </div>
+            `;
+  
+            // Append the card to the container
+            postsContainer.appendChild(postCard);
+          });
+        })
+        .catch(error => console.error('Error loading posts:', error));
+    </script>  </body>
 </html>

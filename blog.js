@@ -1,4 +1,4 @@
-const API_URL = "http://calvent-blog/wp-json/wp/v2/posts?_fields=id,title,excerpt,slug,date,_links&_embed";
+const API_URL = "https://crazy-haibt.173-209-53-178.plesk.page/wp-json/wp/v2/posts?_fields=id,title,excerpt,slug,date,_links&_embed";
 
 async function fetchPosts() {
     try {

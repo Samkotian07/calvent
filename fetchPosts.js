@@ -1,11 +1,18 @@
-const axios = require("axios");
-const fs = require("fs-extra");
-const path = require("path");
+import axios from "axios";
+import fs from "fs-extra";
+import path from "path";
+import { convert } from "html-to-text";
+import slugify from "slugify";
+import matter from 'gray-matter';
+import { fileURLToPath } from "url";
 
-const BLOG_DIR = path.join(__dirname, "blog");
+// Fix for `__dirname` in ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const BLOG_DIR = path.join(__dirname, "posts");
 const API_URL =
-  "http://calvent-blog/wp-json/wp/v2/posts?_fields=id,title,content,slug,date,_links,_embedded&" +
-  "_embed=wp:featuredmedia";
+  "https://crazy-haibt.173-209-53-178.plesk.page/wp-json/wp/v2/posts?_embed=wp:featuredmedia";
 
 async function fetchAndStorePosts() {
   try {
@@ -13,31 +20,30 @@ async function fetchAndStorePosts() {
     await fs.ensureDir(BLOG_DIR);
 
     for (const post of posts) {
-      console.log("Post Data:", JSON.stringify(post, null, 2)); // Log post details
+      console.log("Post Data:", JSON.stringify(post, null, 2)); // Debugging
 
       let imageUrl = "";
       if (
-        post._embedded &&
-        post._embedded["wp:featuredmedia"] &&
-        post._embedded["wp:featuredmedia"][0] &&
-        post._embedded["wp:featuredmedia"][0].source_url
+        post._embedded?.["wp:featuredmedia"]?.[0]?.source_url
       ) {
         imageUrl = post._embedded["wp:featuredmedia"][0].source_url;
       } else {
         console.log(`No featured image found for post: ${post.slug}`);
       }
 
-      const markdownContent = `---
-title: ${post.title.rendered}
-slug: ${post.slug}
-image: ${imageUrl}
-date: ${post.date}
+      const markdownContent = 
+`---
+title: "${post.title.rendered.replace(/"/g, '\\"')}" 
+slug: "${post.slug}"
+featured_image: "${imageUrl}"
+date: "${post.date}"
 ---
-${post.content.rendered.replace(/<\/?[^>]+(>|$)/g, "")}`;
-
-      const filePath = path.join(BLOG_DIR, `${post.slug}.md`);
+${convert(post.content.rendered)}`;
+      
+      const safeSlug = slugify(post.slug, { lower: true, strict: true });
+      const filePath = path.join(BLOG_DIR, `${safeSlug}.md`);
       await fs.writeFile(filePath, markdownContent);
-      console.log(`Saved: ${post.slug}.md`);
+      console.log(`Saved: ${safeSlug}.md`);
     }
   } catch (error) {
     console.error("Error fetching posts:", error);

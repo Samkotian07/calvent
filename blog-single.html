@@ -47,7 +47,7 @@
         <div class="about-section" data-aos="fade-up" data-aos-delay="100">
           <div class="nav-links">
             <a href="index.html">HOME</a>
-            <a href="#">Blog</a>
+            <a href="blog.html">Blog</a>
           </div>
           <h1 id="blog-title"></h1>
           <div class="slant"></div>
@@ -86,14 +86,16 @@
       </div>
       <!-- /Hero Section -->
       <!-- Blog Section -->
-       <section class="post" >
-        <div class="container">
-            <img id="featured-image" src="" alt="Blog Image" class="post-img">
-            <h1 id="blog-title"></h1>
-            <p class="date" id="blog-date"></p>
-            <div class="content" id="blog-content"></div>
-            <a href="blog.html" class="back-button">Back to Blog</a>
+
+       <section class="post"  >
+        <div class="container" id="post-content"> >
+          <img id="featured-image" src="" alt="Blog Image" class="post-img">
+          <h1 id="blog-title"></h1>
+          <p class="date" id="blog-date"></p>
+          <div class="content" id="blog-content"></div>
+          <a href="blog.html" class="back-button">Back to Blog</a>
         </div>
+
         <div class="col-md-6 pr-md-5 contact-form">
           <h2 class="section-title">Leave A Comment</h2>
           <form action="#">
@@ -187,37 +189,72 @@
       </div>
     </footer>
     <script src="assets/js/main.js"></script>
-    <script src="blog.js"></script>
     <script>
-        async function loadBlogPost() {
-            const params = new URLSearchParams(window.location.search);
-            const slug = params.get("slug");
-            if (!slug) {
-                document.getElementById("blog-title").innerText = "Blog Not Found";
-                return;
-            }
+      // Function to load a single post's content
+      function loadSinglePost(postFile) {
+        fetch(postFile)
+          .then(response => response.text())
+          .then(markdown => {
+            // Split the markdown to get the front matter and content
+            const frontMatterEndIndex = markdown.indexOf('---', 3); // Find the end of front matter section
+            const frontMatter = markdown.slice(0, frontMatterEndIndex); // Extract front matter
+            const content = markdown.slice(frontMatterEndIndex + 3).trim(); // Extract content (markdown without front matter)
+  
+            // Now, parse the markdown content only (not the front matter)
+            const postContent = marked.parse(content); // Use 'marked.parse' for version 15+
             
-            const API_URL = `http://calvent-blog/wp-json/wp/v2/posts?slug=${slug}&_embed`;
-            try {
-                const response = await fetch(API_URL);
-                const posts = await response.json();
-                if (posts.length === 0) {
-                    document.getElementById("blog-title").innerText = "Post Not Found";
-                    return;
-                }
-                const post = posts[0];
-                
-                document.getElementById("featured-image").src = post._embedded["wp:featuredmedia"] ? post._embedded["wp:featuredmedia"][0].source_url : "default-image.jpg";
-                document.getElementById("blog-title").innerText = post.title.rendered;
-                document.getElementById("blog-date").innerText = new Date(post.date).toDateString();
-                document.getElementById("blog-content").innerHTML = post.content.rendered;
-            } catch (error) {
-                console.error("Error fetching post:", error);
-            }
+            // Optional: Extract front matter fields (title, date, etc.)
+            const frontMatterData = parseFrontMatter(frontMatter);
+            
+            // Render the post content with metadata (if needed)
+            document.getElementById('post-content').innerHTML = `
+              <div class="container">
+                <img src="${frontMatterData.featured_image}" alt="${frontMatterData.title}">
+                <h1>${frontMatterData.title}</h1>
+                <p  class="date"> ${frontMatterData.date}</p>
+                <div  class="content">${postContent}</div>
+                <a href="blog.html" class="back-button">Back to Blog</a>
+              </div>
+            `;
+  
+            // Set up the back button
+            document.getElementById('back-button').addEventListener('click', () => {
+              window.history.back(); // Go back to the previous page
+            });
+          })
+          .catch(error => console.error('Error loading post:', error));
+      }
+  
+      // Helper function to parse front matter data (basic version)
+      function parseFrontMatter(frontMatter) {
+        const lines = frontMatter.split('\n');
+        const data = {};
+  
+        lines.forEach(line => {
+          const match = line.match(/(\w+):\s*(.*)/);
+          if (match) {
+            const key = match[1].trim();
+            const value = match[2].trim();
+            data[key] = value;
+          }
+        });
+  
+        return data;
+      }
+  
+      // Parse the URL and fetch the corresponding post
+      window.onload = () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const postFile = urlParams.get('post'); // Get the post file from the query parameter
+        if (postFile) {
+          loadSinglePost(postFile);  // Load the content for the post
+        } else {
+          document.getElementById('post-content').innerHTML = `<p>No post found.</p>`; // If no post param, show an error message
         }
-
-        window.onload = loadBlogPost;
+      }
     </script>
     <script src="post.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.7/marked.min.js" integrity="sha512-rPuOZPx/WHMHNx2RoALKwiCDiDrCo4ekUctyTYKzBo8NGA79NcTW2gfrbcCL2RYL7RdjX2v9zR0fKyI4U4kPew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   </body>
 </html>
