@@ -4,8 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "node fetchPosts.js && node generatePostsJson.js",
-    "build": "cp -r * dist/"
+  
     },
   "author": "",
   "license": "ISC",
