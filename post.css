@@ -13,7 +13,33 @@
 
 .cen{
     position: relative;
-    left: 150px;
+    left: 0px;
+    width: 100%;
+}
+
+.title1{
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.back-button{
+    position: relative;
+    top: 1.5em;
+    translate: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #752995;
+    color: white;
+    
+    border: 2px solid #752995;
+  
+    border-radius: 5px;
+    cursor: pointer;
+}
+.back-button:hover{
+    background-color: #fff;
 }
 @media screen and (max-width: 768px){
     .post .post-img{

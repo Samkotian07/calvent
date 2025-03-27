@@ -217,7 +217,7 @@
       postContainer.innerHTML = `
         <div class="container">
           ${metaData.featured_image ? `<img class="cen" src=${metaData.featured_image} alt="${metaData.title}">` : ""}
-          <h1>${metaData.title || "Untitled Post"}</h1>
+          <h1 class="title1">${metaData.title || "Untitled Post"}</h1>
           <p class="date">${metaData.date || "Unknown Date"}</p>
           <div class="content">${parsedContent}</div>
           <a href="blog.html" class="back-button">Back to Blog</a>
