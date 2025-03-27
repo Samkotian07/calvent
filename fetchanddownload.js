@@ -13,13 +13,22 @@ const BLOG_DIR = path.join(__dirname, "posts");
 const IMAGE_DIR = path.join(__dirname, "image");
 const API_URL = "https://crazy-haibt.173-209-53-178.plesk.page/wp-json/wp/v2/posts?_embed=wp:featuredmedia";
 
-// Ensure directories exist
-await fs.ensureDir(BLOG_DIR);
-await fs.ensureDir(IMAGE_DIR);
-
 async function fetchAndStorePosts() {
     try {
+        // ✅ Clear the posts folder before fetching
+        await fs.emptyDir(BLOG_DIR);
+        console.log("Cleared posts folder.");
+
+        // Ensure required directories exist
+        await fs.ensureDir(BLOG_DIR);
+        await fs.ensureDir(IMAGE_DIR);
+
         const { data: posts } = await axios.get(API_URL);
+
+        if (posts.length === 0) {
+            console.log("No posts found in WordPress API.");
+            return;
+        }
 
         for (const post of posts) {
             let imageUrl = "";
@@ -66,4 +75,5 @@ async function downloadImage(imageUrl) {
     }
 }
 
+// Run the function to fetch posts
 fetchAndStorePosts();
