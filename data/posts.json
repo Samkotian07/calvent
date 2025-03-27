@@ -1,12 +1,17 @@
 [
   {
-    "file": "posts/life.md",
-    "title": "Life",
-    "featured_image": null
+    "file": "posts/cat.md",
+    "title": "CAT",
+    "featured_image": "./image/2536363-847447-958584-5948.jpeg"
+  },
+  {
+    "file": "posts/nice.md",
+    "title": "nICE",
+    "featured_image": "./image/13-spectacular-wallpaper-horizontal-vintage.jpeg"
   },
   {
     "file": "posts/sam.md",
-    "title": "SAM",
-    "featured_image": "./image/a636a6b8-49ee-4f1a-bfca-6061759048ab.jpeg"
+    "title": "Sam",
+    "featured_image": "./image/〃♡〃.jpeg"
   }
 ]

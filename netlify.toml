@@ -1,0 +1,3 @@
+[build]
+command = "node fetchanddownload.js && node generatePostsJson.js"
+publish = "."  # Keep the root directory as the publish folder
