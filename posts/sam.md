@@ -1,19 +1,17 @@
 ---
-title: "SAM" 
+title: "SAM"
 slug: "sam"
-featured_image: ""
-date: "2025-03-12T07:49:26"
+featured_image: "./image/a636a6b8-49ee-4f1a-bfca-6061759048ab.jpeg"
+date: "2025-03-27T10:17:05"
 ---
-Booster shot to Indian defence sector from European Commission’s ReArm plan:
-HAL, BEL among 6 stocks to buy
+REALME C61
 
-Amid fears among exporters of higher tariffs in the lucrative US market from
-April 2 when reciprocal tariffs are set to come into effect, the Ministry of
-Commerce and Industry told Lok Sabha Tuesday that the government is engaging
-with the US to eliminate tariffs and non-tariff barriers and improve trade.
+The Realme C61 is another budget Android phone that offers great value for
+money. Powered by the Unisoc Tiger T612 chipset, it sports a huge 6.74-inch IPS
+LCD screen with a 90Hz refresh rate and HD+ resolution.
 
-Amid fears among exporters of higher tariffs in the lucrative US market from
-April 2 when reciprocal tariffs are set to come into effect, the Ministry of
-Commerce and Industry told Lok Sabha Tuesday that the government is engaging
-with the US to eliminate tariffs and non-tariff barriers and improve trade.
+It comes with Realme UI based on Android 14 out of the box and has a single 32MP
+camera. Like most budget phones, you get a side-mounted fingerprint sensor
+embedded in the power button and a 5,000mAh battery that lets you charge the
+phone at 15W.
 

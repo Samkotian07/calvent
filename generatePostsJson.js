@@ -2,11 +2,11 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-// Path to your posts folder (adjusted to the correct location)
-const postsDir = path.join(process.cwd(), 'posts');  // Ensure 'posts' is in the root directory
+// Paths
+const postsDir = path.join(process.cwd(), 'posts');  // Markdown files directory
+const imagesDir = path.join(process.cwd(), 'image'); // Image folder
 const outputFile = path.join(process.cwd(), 'data', 'posts.json');
 
-// Function to generate posts.json file
 async function generatePostsJson() {
   try {
     // Ensure 'posts' directory exists
@@ -16,56 +16,59 @@ async function generatePostsJson() {
       return;
     }
 
-    // Read the contents of the posts directory
+    // Read markdown files
     const files = await fs.readdir(postsDir);
 
-    // Filter only .md files and map them to an array with metadata
+    // Read image files
+    const imageFiles = await fs.readdir(imagesDir).catch(() => []);
+    const imageSet = new Set(imageFiles); // Use a Set for quick lookups
+
+    // Process markdown files
     const posts = await Promise.all(
       files
         .filter(file => file.endsWith('.md')) // Ensure only .md files
         .map(async (file) => {
-          // Read the content of the .md file
           const filePath = path.join(postsDir, file);
           const fileContent = await fs.readFile(filePath, 'utf-8').catch(err => {
             console.error(`Error reading file ${file}: ${err.message}`);
-            return ''; // If reading fails, return empty string to skip processing
+            return ''; 
           });
 
-          if (!fileContent) {
-            return null; // Skip invalid or empty files
-          }
+          if (!fileContent) return null; // Skip invalid or empty files
 
-          // Use gray-matter to extract front matter and content
+          // Extract front matter
           const { data } = matter(fileContent);
-
-          // Ensure front matter contains the necessary data
-          if (!data.title) {
-            console.warn(`No title in front matter for file: ${file}`);
+          const fileNameWithoutExt = file.replace('.md', '');
+          
+          // Determine featured image
+          let featuredImage = data.featured_image;
+          if (!featuredImage) {
+            const matchingImage = imageFiles.find(img =>
+              img.startsWith(fileNameWithoutExt) // Match based on filename
+            );
+            if (matchingImage) {
+              featuredImage = path.posix.join('image', matchingImage);
+            }
           }
 
-          // Create post metadata using front matter and assume image name is the same as the markdown filename
           return {
-            file: path.posix.join('posts', file),  // Path to the .md file using forward slashes
-            title: data.title || file.replace('.md', ''),  // Get title from front matter or fallback to filename
-            featured_image: data.featured_image || path.posix.join('posts', file.replace('.md', '.jpg')), // Image assumed to match markdown filename
-            date: data.date || null,  // Optional date field
+            file: path.posix.join('posts', file),
+            title: data.title || fileNameWithoutExt,
+            featured_image: featuredImage || null, // If no match, keep it null
           };
         })
     );
 
-    // Filter out any null values caused by failed files
+    // Filter out any null values
     const validPosts = posts.filter(post => post !== null);
 
-    // Log the posts that are being written to posts.json
-    console.log('Generated posts:', validPosts);
-
-    // Write the posts array to posts.json
+    // Write to posts.json
     await fs.writeFile(outputFile, JSON.stringify(validPosts, null, 2));
-    console.log('posts.json has been generated!');
+    console.log('posts.json has been generated with images!');
   } catch (err) {
     console.error('Error generating posts.json:', err);
   }
 }
 
-// Call the function to generate posts.json
+// Run the function
 generatePostsJson();

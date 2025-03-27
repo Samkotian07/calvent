@@ -1,68 +1,12 @@
 [
   {
-    "file": "posts/aaaaaaaaaaaaaaa.md",
-    "title": "aaaaaaaaaaaaaaa",
-    "featured_image": "posts/aaaaaaaaaaaaaaa.jpg",
-    "date": "2025-03-26T08:06:58"
-  },
-  {
-    "file": "posts/cake.md",
-    "title": "Cake",
-    "featured_image": "posts/cake.jpg",
-    "date": "2025-03-25T10:15:11"
-  },
-  {
-    "file": "posts/clear.md",
-    "title": "Clear",
-    "featured_image": "posts/clear.jpg",
-    "date": "2025-03-22T09:42:45"
-  },
-  {
-    "file": "posts/heyyy.md",
-    "title": "heyyy",
-    "featured_image": "posts/heyyy.jpg",
-    "date": "2025-03-25T11:52:21"
-  },
-  {
-    "file": "posts/news.md",
-    "title": "News",
-    "featured_image": "posts/news.jpg",
-    "date": "2025-03-12T07:50:26"
-  },
-  {
-    "file": "posts/rawee.md",
-    "title": "Rawee",
-    "featured_image": "https://crazy-haibt.173-209-53-178.plesk.page/wp-content/uploads/2025/03/artworks-6slOoDBveQDpznHN-5Ndayw-t500x500.jpg",
-    "date": "2025-03-26T09:47:27"
-  },
-  {
-    "file": "posts/read.md",
-    "title": "Read",
-    "featured_image": "https://crazy-haibt.173-209-53-178.plesk.page/wp-content/uploads/2025/03/WhatsApp-Image-2025-01-20-at-1.20.35-PM-1.jpeg",
-    "date": "2025-03-12T07:51:19"
+    "file": "posts/life.md",
+    "title": "Life",
+    "featured_image": null
   },
   {
     "file": "posts/sam.md",
     "title": "SAM",
-    "featured_image": "posts/sam.jpg",
-    "date": "2025-03-12T07:49:26"
-  },
-  {
-    "file": "posts/sky.md",
-    "title": "sky",
-    "featured_image": "https://crazy-haibt.173-209-53-178.plesk.page/wp-content/uploads/2025/03/DALL·E-2025-02-03-12.06.05-A-high-quality-abstract-background-image-with-a-deep-green-104c34-color-scheme-featuring-smooth-gradients-and-subtle-geometric-patterns.-The-desig.webp",
-    "date": "2025-03-26T09:54:43"
-  },
-  {
-    "file": "posts/texting.md",
-    "title": "Texting",
-    "featured_image": "https://crazy-haibt.173-209-53-178.plesk.page/wp-content/uploads/2025/03/WhatsApp-Image-2025-01-20-at-1.20.35-PM-1.jpeg",
-    "date": "2025-03-12T05:11:52"
-  },
-  {
-    "file": "posts/web-hook-testing.md",
-    "title": "Web Hook Testing",
-    "featured_image": "https://crazy-haibt.173-209-53-178.plesk.page/wp-content/uploads/2025/03/artworks-6slOoDBveQDpznHN-5Ndayw-t500x500.jpg",
-    "date": "2025-03-26T11:40:02"
+    "featured_image": "./image/a636a6b8-49ee-4f1a-bfca-6061759048ab.jpeg"
   }
 ]
