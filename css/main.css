@@ -585,7 +585,7 @@ section,
    /* height: 100vh;*/
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 60px 0;
+  padding: 25px 0;
   scroll-margin-top: 90px;
   overflow: clip;
 }

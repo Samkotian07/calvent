@@ -1,8 +1,8 @@
 ---
-title: "Riyan Parag Hits All-Time Low, Becomes First Player In History To Achieve Embarrassing Feat"
-slug: "riyan-parag-hits-all-time-low-becomes-first-player-in-history-to-achieve-embarrassing-feat"
-featured_image: "./image/13-spectacular-wallpaper-horizontal-vintage.jpeg"
-date: "2025-03-27T19:01:23"
+title: "Vibrant Vegetarian Healthy Heart Plan"
+slug: "vibrant-vegetarian-healthy-heart-plan"
+featured_image: "./image/flowers.jpeg"
+date: "2025-03-27T19:18:30"
 ---
 Parag, the first male cricketer from Assam to play for the Indian cricket team,
 also became the first player from the state to lead an IPL franchise on Sunday

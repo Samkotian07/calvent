@@ -167,6 +167,9 @@
       fetch('data/posts.json')
         .then(response => response.json())
         .then(posts => {
+          // Sort posts by date in descending order (latest first)
+          posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    
           const postsContainer = document.getElementById('blog-posts');
           posts.forEach(post => {
             // Create a blog card for each post
@@ -176,19 +179,20 @@
             // Set up the card content
             postCard.innerHTML = `
               <div class="blog-card">
-              <img width="10%" src="${post.featured_image}" alt="" class="featured-image">
-                <div class="blog-info" >
+                <img width="10%" src="${post.featured_image}" alt="" class="featured-image">
+                <div class="blog-info">
                   <p>${post.date}</p>
                   <h3><a href="blog-single.html?post=${encodeURIComponent(post.file)}">${post.title}</a></h3>
                   <a href="blog-single.html?post=${encodeURIComponent(post.file)}" class="read-more">Read More</a>
                 </div>
               </div>
             `;
-  
+    
             // Append the card to the container
             postsContainer.appendChild(postCard);
           });
         })
         .catch(error => console.error('Error loading posts:', error));
-    </script>  </body>
+    </script>
+      </body>
 </html>
