@@ -118,7 +118,7 @@
             </div>
             <div class="form-group">
               <textarea
-              
+
                 name=""
                 id=""
                 cols="30"
@@ -146,11 +146,11 @@
           <p>A108 Adam Street <br />New York, NY 535022</p>
           <p><strong>Phone:</strong> +1 5589 55488 55</p>
           <p><strong>Email:</strong> info@example.com</p>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-x-twitter"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
         <div class="footer-section">
@@ -215,9 +215,10 @@
       const metaData = parseFrontMatter(frontMatter);
       
       postContainer.innerHTML = `
+
         <div class="container">
-          ${metaData.featured_image ? `<img class="cen" src=${metaData.featured_image} alt="${metaData.title}">` : ""}
-          <h1 class="title1">${metaData.title || "Untitled Post"}</h1>
+          ${metaData.featured_image ? `<div class="frame"><img class="cen" src=${metaData.featured_image} alt="${metaData.title}"></div>` : ""}
+          <h1 class="title1" id="title">${metaData.title || "Untitled Post"}</h1>
           <p class="date">${metaData.date || "Unknown Date"}</p>
           <div class="content">${parsedContent}</div>
           <a href="blog.html" class="back-button">Back to Blog</a>

@@ -274,12 +274,22 @@ body {
     
 }
 
+.social-links {
+  display: flex; /* Ensure Flexbox is applied */
+  gap: 10px; /* Add gap between items */
+}
+
+.social-links a {
+  margin: 0; /* Remove any existing margin if needed */
+}
 
 
 .footer-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 .footer-section {
@@ -363,7 +373,7 @@ body {
     .navmenu a:focus {
       color: var(--nav-color);
       padding: 18px 15px;
-      font-size: 16px;
+      font-size: 22px;
       font-family: var(--nav-font);
       font-weight: 400;
       display: flex;
@@ -413,7 +423,7 @@ body {
   
     .navmenu .dropdown ul a {
       padding: 10px 20px;
-      font-size: 15px;
+      font-size: 22px;
       text-transform: none;
       color: var(--nav-dropdown-color);
     }

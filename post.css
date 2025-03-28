@@ -7,8 +7,63 @@
 .post .contact-form{
     margin-top: 5%;
     position: relative;
-    left: 23%;
+    left: 28%;
     align-items: center;
+}
+
+@media screen and (max-width: 768px){
+   
+    .post .contact-form{
+       margin-top: 16%;
+    }
+   
+}
+
+.content{
+    color: rgb(15, 15, 15);
+}
+
+.frame {
+    position: relative;
+    margin: 25vh auto -191px; /* Push the element down by 50% of the viewport height */
+    transform: translateY(-50%); /* Pull it back up by 50% of its height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%; /* Adjust as needed */
+    height: auto; /* Adjust as needed */
+    text-align: center; /* Optional */
+}
+
+@media screen and (max-width: 768px) {
+    .frame {
+        position: relative;
+        margin: 27vh auto -154px; /* Push the element down by 50% of the viewport height */
+        transform: translateY(-50%); /* Pull it back up by 50% of its height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%; /* Adjust width for smaller screens */
+        height: auto; /* Adjust as needed */
+        text-align: center; /* Optional */
+    }
+}
+
+@media screen and (max-width: 480px){
+    .frame {
+        position: relative;
+        margin: 18vh auto -104px; /* Push the element down by 50% of the viewport height */
+        transform: translateY(-50%); /* Pull it back up by 50% of its height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%; /* Adjust width for smaller screens */
+        height: auto; /* Adjust as needed */
+        text-align: center; /* Optional */
+    } 
+    .back-button{
+        left: 6em;
+    }
 }
 
 .cen{
@@ -27,6 +82,7 @@
 
 .back-button{
     position: relative;
+    left: 25em;
     top: 1.5em;
     translate: translate(-50%, -50%);
     padding: 10px 20px;
@@ -38,6 +94,7 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
 .back-button:hover{
     background-color: #fff;
 }
@@ -53,6 +110,9 @@
     }
     .main .nav-links{
         display: none;
+    }
+    .back-button{
+        left:9em;
     }
     
 }
