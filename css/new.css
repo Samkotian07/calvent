@@ -209,3 +209,12 @@
  }
 
 }
+
+.map{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    display: flex;
+}
