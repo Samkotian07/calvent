@@ -34,14 +34,14 @@
       <div
         class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
       >
-        <a
-          href="index.html"
-          class="logo d-flex align-items-center me-auto me-xl-0"
-        >
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.png" alt=""> -->
-          <h1 class="sitename">CALVENT</h1>
-        </a>
+      <a
+      href="index.html"
+      class="logo d-flex align-items-center me-auto me-xl-0"
+    >
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <img src="assets/img/logo.png" alt="">
+      <!--h1 class="sitename">CALVENT</h1-->
+    </a>
 
         <nav id="navmenu" class="navmenu">
           <ul>
@@ -94,15 +94,18 @@
       </div>
     </header>
     <main class="main">
-      <div id="call-to-action" class="call-to-action">
+      <!--div id="call-to-action" class="call-to-action">
         <div class="about-section" data-aos="fade-up" data-aos-delay="100">
+          
           <div class="nav-links">
+            <!--
             <a href="#">HOME</a>
             <a href="#">ABOUT</a>
+          --
           </div>
           <h1>About Us</h1>
           <div class="slant"></div>
-          <!-- Abstract Background Elements -->
+          <!-- Abstract Background Elements --
           <div class="shape shape-1">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -121,7 +124,7 @@
             </svg>
           </div>
 
-          <!-- Dot Pattern Groups -->
+          <!-- Dot Pattern Groups --
           <div class="dots dots-1">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
               <pattern
@@ -164,69 +167,13 @@
           </div>
         </div>
       </div>
-      <!-- /Hero Section -->
+      -- /Hero Section -->
 
       <!-- Stats Section -->
-      <section id="stats" class="stats section">
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <div class="row gy-4">
-            <div class="col-lg-3 col-md-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span class="number purecounter" data-target="232">0</span>
-                <p>Clients</p>
-              </div>
-            </div>
-            <!-- End Stats Item -->
+     
 
-            <div class="col-lg-3 col-md-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span class="number purecounter" data-target="521">0</span>
-                <p>Projects</p>
-              </div>
-            </div>
-            <!-- End Stats Item -->
-
-            <div class="col-lg-3 col-md-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span class="number purecounter" data-target="1453">0</span>
-                <p>Hours Of Support</p>
-              </div>
-            </div>
-            <!-- End Stats Item -->
-
-            <div class="col-lg-3 col-md-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span class="number purecounter" data-target="32">0</span>
-                <p>Workers</p>
-              </div>
-            </div>
-            <!-- End Stats Item -->
-          </div>
-        </div>
-      </section>
-
-      <script>
-        const counters = document.querySelectorAll(".number");
-
-        counters.forEach((counter) => {
-          const updateCount = () => {
-            const target = +counter.getAttribute("data-target");
-            const count = +counter.innerText;
-            const increment = target / 100;
-
-            if (count < target) {
-              counter.innerText = Math.ceil(count + increment);
-              setTimeout(updateCount, 20);
-            } else {
-              counter.innerText = target;
-            }
-          };
-
-          updateCount();
-        });
-      </script>
       <!-- Call To Action Section -->
-      <section id="call-to-action" class="call-to-action section">
+      <section id="call-to-action" class="call-to-action section live">
         <div class="container" data-aos="fade-up" data-aos-delay="100">
           <div
             class="row content justify-content-center align-items-center position-relative"
@@ -353,8 +300,7 @@
         <div class="container section-title" data-aos="fade-up">
           <h2>Testimonials</h2>
           <p>
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit
+            Trusted by Industry Leaders, Backed by Proven Success and Lasting Impact.
           </p>
         </div>
         <!-- End Section Title -->
@@ -368,7 +314,7 @@
                   class="testimonial-img"
                   alt=""
                 />
-                <h3>Saul Goodman</h3>
+                <h3> Ravi Mehta</h3>
                 <h4>Ceo &amp; Founder</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
@@ -378,10 +324,7 @@
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
                   <span
-                    >Proin iaculis purus consequat sem cure digni ssim donec
-                    porttitora entum suscipit rhoncus. Accusantium quam,
-                    ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                    risus at semper.</span
+                    >Calvent transformed our startup’s financial strategy, helping us secure investor funding and optimize our operations. Their expertise in business growth is unmatched!</span
                   >
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
@@ -396,7 +339,7 @@
                   class="testimonial-img"
                   alt=""
                 />
-                <h3>Sara Wilsson</h3>
+                <h3> Priya Nair</h3>
                 <h4>Designer</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
@@ -406,10 +349,7 @@
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
                   <span
-                    >Export tempor illum tamen malis malis eram quae irure esse
-                    labore quem cillum quid cillum eram malis quorum velit fore
-                    eram velit sunt aliqua noster fugiat irure amet legam anim
-                    culpa.</span
+                    >Working with Calvent has been a game-changer! Their tailored solutions helped us streamline our financial processes and boost profitability. Highly recommended!</span
                   >
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
@@ -424,7 +364,7 @@
                   class="testimonial-img"
                   alt=""
                 />
-                <h3>Jena Karlis</h3>
+                <h3>Arjun Sharma</h3>
                 <h4>Store Owner</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
@@ -434,9 +374,7 @@
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
                   <span
-                    >Enim nisi quem export duis labore cillum quae magna enim
-                    sint quorum nulla quem veniam duis minim tempor labore quem
-                    eram duis noster aute amet eram fore quis sint minim.</span
+                    >The insights and strategic guidance from Calvent helped us navigate complex business challenges with confidence. Their team truly understands evolving business needs!</span
                   >
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
@@ -451,7 +389,7 @@
                   class="testimonial-img"
                   alt=""
                 />
-                <h3>Matt Brandon</h3>
+                <h3>Neha Agarwal</h3>
                 <h4>Freelancer</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
@@ -461,10 +399,7 @@
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
                   <span
-                    >Fugiat enim eram quae cillum dolore dolor amet nulla culpa
-                    multos export minim fugiat minim velit minim dolor enim duis
-                    veniam ipsum anim magna sunt elit fore quem dolore labore
-                    illum veniam.</span
+                    >From tax planning to financial structuring, Calvent provided end-to-end support that helped our company scale seamlessly. A trusted partner for any growing business!</span
                   >
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
@@ -477,62 +412,58 @@
 
       <!-- /Stats Section -->
     </main>
-    <footer>
-      <div class="footer-container">
-        <div class="footer-section">
-          <h2>CALVENT</h2>
-          <p>
-            A108 Adam Street <br />
-            New York, NY 535022
-          </p>
-          <p><strong>Phone:</strong> +1 5589 55488 55</p>
-          <p><strong>Email:</strong> info@example.com</p>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+      <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h2>CALVENT</h2>
+            <p>
+             <!--- A108 Adam Street--> <br />
+              Puttur, Karnataka 574201 <br />
+            </p>
+            <p><strong>Phone:</strong> +1 5589 55488 55</p>
+            <p><strong>Email:</strong> info@example.com</p>
+            <div class="social-links d-flex mt-4">
+              <a href=""><i class="bi bi-twitter-x"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+  
+          <div class="footer-section">
+            <h3>Useful Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="service.html">Shared CFO</a></li>
+              <li><a href="consulting.html">Consulting</a></li>
+              <li><a href="blog.html">Blog</a></li>
+            </ul>
+          </div>
+  
+          <div class="footer-section">
+            <h3>Overview</h3>
+            <p>
+              Calvent provides expert financial insights and strategic solutions to drive business growth. Stay connected for updates.
+            </p>
+          </div>
+  
+          <div class="footer-section">
+            <h3>Newsletter</h3>
+            <p class="subp">Far far away, behind the word mountains, far from the countries.</p>
+            <div class="subscribe-box">
+              <input type="email" id="email" placeholder="Enter your email">
+              <button onclick="subscribe()">
+                  &#9993; <!-- Unicode envelope icon -->
+              </button>
+          </div>
           </div>
         </div>
-
-        <div class="footer-section">
-          <h3>Useful Links</h3>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-          </ul>
+  
+        <div class="footer-bottom">
+          <p>&copy; Copyright <strong>CALVENT</strong> All Rights Reserved</p>
         </div>
-
-        <div class="footer-section">
-          <h3>Hic solutasept</h3>
-          <ul>
-            <li><a href="#">Molestiae accusamus iure</a></li>
-            <li><a href="#">Excepturi dignissimos</a></li>
-            <li><a href="#">Suscipit distinctio</a></li>
-            <li><a href="#">Dilecta</a></li>
-            <li><a href="#">Sit quas consectetur</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h3>Nobis illum</h3>
-          <ul>
-            <li><a href="#">Ipsam</a></li>
-            <li><a href="#">Laudantium dolorum</a></li>
-            <li><a href="#">Dinera</a></li>
-            <li><a href="#">Trodela</a></li>
-            <li><a href="#">Flexo</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; Copyright <strong>CALVENT</strong> All Rights Reserved</p>
-      </div>
-    </footer>
+      </footer>
   </body>
   <script type="text/javascript">
     var contentWayPoint = function () {
