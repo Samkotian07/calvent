@@ -40,7 +40,7 @@ body {
     background-color: var(--background-color);
     font-family: var(--default-font);
     height: 100vh;
-    font-size: 22px;
+    font-size: 16px;
   }
   
   a {
@@ -294,6 +294,10 @@ body {
     font-size: 24px;
     margin-bottom: 15px;
   }
+
+  .footerlogo {
+    width: 100px;
+  }
   
   .footer-section ul {
     list-style: none;
@@ -382,8 +386,8 @@ body {
   overflow: hidden;
 }
 .subscribe-box input {
-  background: rgb(238, 217, 217);
-  font-size: 18px;
+  background: color-mix(in srgb, var(--accent-color), transparent 95%) 50%;
+  font-size: 13px;
   border: none;
   padding: 0px;
   flex: 1;
@@ -398,7 +402,58 @@ body {
 }
 
 
+.testinomial-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 20px;
+}
 
+.slider-container {
+  width: 80%;
+  max-width: 900px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.testimonial {
+  display: none;
+  text-align: center;
+  padding: 20px;
+}
+.testimonial.active {
+  display: block;
+}
+.author {
+  margin-top: 10px;
+  font-weight: bold;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 5px;
+  background-color: gray;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+.dot.active {
+  background-color: black;
+}
+@media (max-width: 600px) {
+  .slider-container {
+      width: 90%;
+  }
+}
   /*--------------------------------------------------------------
   # Navigation Menu
   --------------------------------------------------------------*/
@@ -424,7 +479,7 @@ body {
     .navmenu a:focus {
       color: var(--nav-color);
       padding: 18px 15px;
-      font-size: 22px;
+      font-size: 18px;
       font-family: var(--nav-font);
       font-weight: 400;
       display: flex;
@@ -474,7 +529,7 @@ body {
   
     .navmenu .dropdown ul a {
       padding: 10px 20px;
-      font-size: 22px;
+      font-size: 18px;
       text-transform: none;
       color: var(--nav-dropdown-color);
     }
@@ -697,7 +752,7 @@ section,
 --------------------------------------------------------------*/
 .hero {
     position: relative;
-    padding-top: 90px;
+    padding-top: 170px;
     background: linear-gradient(
       135deg,
       color-mix(in srgb, var(--accent-color), transparent 95%) 50%,
@@ -1303,15 +1358,24 @@ font-size: 30px;  opacity: 0;
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
-.testimonials .testimonial-item {
+ /*.testimonial-item {
   background-color: var(--surface-color);
   box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.08);
   padding: 30px;
   position: relative;
   height: 100%;
+
+}*/
+
+.testimonial-item {
+  display: none;
+  padding: 20px;
+}
+.testimonial-item.active {
+  display: block;
 }
 
-.testimonials .testimonial-item .testimonial-img {
+ .testimonial-img {
   width: 90px;
   border-radius: 50px;
   border: 6px solid var(--background-color);
@@ -1319,13 +1383,12 @@ font-size: 30px;  opacity: 0;
   margin: 0 10px 0 0;
 }
 
-.testimonials .testimonial-item h3 {
+ .testimonial-item h3 {
   font-size: 18px;
   font-weight: bold;
   margin: 10px 0 5px 0;
 }
-
-.testimonials .testimonial-item h4 {
+ .testimonial-item h4 {
   font-size: 14px;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin: 0;
@@ -1451,7 +1514,7 @@ font-size: 30px;  opacity: 0;
   }
   
   .features .nav-link h4 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     margin: 0;
   }

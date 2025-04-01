@@ -23,9 +23,9 @@
 
 /* Fonts */
 :root {
-    --default-font: "Smooch Sans", serif;
-    --heading-font:"Smooch Sans", serif;
-    --nav-font:"Smooch Sans", serif;
+    --default-font: "Outfit", sans-serif;
+    --heading-font:"Outfit", sans-serif;
+    --nav-font: "Outfit", sans-serif;
   }
 
   :root {
