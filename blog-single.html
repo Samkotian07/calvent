@@ -137,6 +137,17 @@
           <!--a href="blog.html" class="back-button">Back to Blog</a-->
         </div>
 
+        <!-- Share Buttons -->
+        <div class="share-buttons">
+          <p>Share this post:</p>
+          <a href="#" id="facebook-share" target="_blank" class="share-btn"><i class="bi bi-facebook"></i></a>
+          <a href="#" id="twitter-share" target="_blank" class="share-btn"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" id="linkedin-share" target="_blank" class="share-btn"><i class="bi bi-instagram"></i></a>
+          <a href="#" id="whatsapp-share" target="_blank" class="share-btn"><i class="bi bi-whatsapp"></i></a>
+          <button id="native-share" class="share-btn"><i class="bi bi-share"></i></button>
+        </div>
+        <!-- End of Share Buttons -->
+
         <div class="col-md-6 pr-md-5 contact-form">
           <h2 class="section-title">Leave A Comment</h2>
           <form action="#">
@@ -292,6 +303,32 @@
    });
    return data;
  }
+
+
+//Function to handle sharing buttons
+
+ document.addEventListener("DOMContentLoaded", () => {
+  const pageUrl = window.location.href;
+  const pageTitle = document.title;
+
+  document.getElementById("facebook-share").href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`;
+  document.getElementById("twitter-share").href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(pageTitle)}`;
+  document.getElementById("linkedin-share").href = `https://www.instagram.com/?url=YOUR_PAGE_URL=${encodeURIComponent(pageUrl)}&title=${encodeURIComponent(pageTitle)}`;
+  document.getElementById("whatsapp-share").href = `https://api.whatsapp.com/send?text=${encodeURIComponent(pageTitle + " " + pageUrl)}`;
+
+  // Native sharing (for mobile)
+  document.getElementById("native-share").addEventListener("click", () => {
+    if (navigator.share) {
+      navigator.share({
+        title: pageTitle,
+        url: pageUrl
+      }).catch(err => console.log("Error sharing:", err));
+    } else {
+      alert("Sharing not supported on this browser.");
+    }
+  });
+});
+
  
  </script>
  
