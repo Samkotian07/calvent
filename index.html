@@ -880,30 +880,31 @@ Led by Sanath, our founder, Calvent brings years of experience in guiding busine
         </div>
       </section>
      
-            <script>
-              fetch('data/posts.json')
-                  .then(response => response.json())
-                  .then(posts => {
-                      posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-                      const latestPosts = posts.slice(0, 3);
-                      const postsContainer = document.getElementById('blog-posts');
-                      
-                      latestPosts.forEach(post => {
-                          const postCard = document.createElement('div');
-                          postCard.classList.add('blog-card');
-                          postCard.innerHTML = `
-                              <img src="${post.featured_image}" alt="" class="featured-image">
-                              <div class="blog-info">
-                                  <p>${post.date}</p>
-                                  <h3><a href="blog-single.html?post=${encodeURIComponent(post.file)}">${post.title}</a></h3>
-                                  <a href="blog-single.html?post=${encodeURIComponent(post.file)}" class="read-more">Read More</a>
-                              </div>
-                          `;
-                          postsContainer.appendChild(postCard);
-                      });
-                  })
-                  .catch(error => console.error('Error loading posts:', error));
-          </script>
+      <script>
+        fetch('data/posts.json')
+          .then(response => response.json())
+          .then(posts => {
+            posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+            const latestPosts = posts.slice(0, 3);
+            const postsContainer = document.getElementById('blog-posts');
+            
+            latestPosts.forEach(post => {
+              const postCard = document.createElement('div');
+              postCard.classList.add('blog-card');
+              postCard.innerHTML = `
+                <img src="${post.featured_image}" alt="" class="featured-image">
+                <div class="blog-info">
+                  <p>${post.date ? post.date.substring(0, 10) : "Unknown Date"}</p>
+                  <h3><a href="blog-single.html?post=${encodeURIComponent(post.file)}">${post.title}</a></h3>
+                  <a href="blog-single.html?post=${encodeURIComponent(post.file)}" class="read-more">Read More</a>
+                </div>
+              `;
+              postsContainer.appendChild(postCard);
+            });
+          })
+          .catch(error => console.error('Error loading posts:', error));
+      </script>
+      
     </main>
     <!--footer start--
       <footer id="footer" class="footer">

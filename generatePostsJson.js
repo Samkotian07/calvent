@@ -54,6 +54,7 @@ async function generatePostsJson() {
           return {
             file: path.posix.join('posts', file),
             title: data.title || fileNameWithoutExt,
+            date: data.date || null, // Include date from front matter
             featured_image: featuredImage || null, // If no match, keep it null
           };
         })
@@ -64,7 +65,7 @@ async function generatePostsJson() {
 
     // Write to posts.json
     await fs.writeFile(outputFile, JSON.stringify(validPosts, null, 2));
-    console.log('posts.json has been generated with images!');
+    console.log('posts.json has been generated with images and dates!');
   } catch (err) {
     console.error('Error generating posts.json:', err);
   }

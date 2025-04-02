@@ -206,7 +206,7 @@
       </div>
     </footer>
     <script src="assets/js/main.js"></script>
-    <script>
+    <!--script>
       // Fetch the posts data from posts.json
       fetch('data/posts.json')
         .then(response => response.json())
@@ -216,20 +216,23 @@
     
           const postsContainer = document.getElementById('blog-posts');
           posts.forEach(post => {
+            // Extract only characters from index 1 to 11 of the date
+            const formattedDate = post.date ? post.date.substring(0, 10) : "Unknown Date";
+            
             // Create a blog card for each post
             const postCard = document.createElement('div');
-            postCard.classList.add('post-card');
+            postCard.classList.add('blog-card');
           
             // Set up the card content
             postCard.innerHTML = `
-              <div class="blog-card">
+              
                 <img width="10%" src="${post.featured_image}" alt="" class="featured-image">
                 <div class="blog-info">
-                  <p>${post.date}</p>
+                  <p>${formattedDate}</p>
                   <h3><a href="blog-single.html?post=${encodeURIComponent(post.file)}">${post.title}</a></h3>
                   <a href="blog-single.html?post=${encodeURIComponent(post.file)}" class="read-more">Read More</a>
                 </div>
-              </div>
+              
             `;
     
             // Append the card to the container
@@ -237,6 +240,8 @@
           });
         })
         .catch(error => console.error('Error loading posts:', error));
-    </script>
+    </script-->
+    <script src="assets/js/blog.js"></script>
+
       </body>
 </html>

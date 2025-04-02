@@ -134,7 +134,7 @@
           <h1 id="blog-title"></h1>
           <p class="date" id="blog-date"></p>
           <div class="content" id="blog-content"></div>
-          <a href="blog.html" class="back-button">Back to Blog</a>
+          <!--a href="blog.html" class="back-button">Back to Blog</a-->
         </div>
 
         <div class="col-md-6 pr-md-5 contact-form">
@@ -234,57 +234,68 @@
     </footer>
     <script src="assets/js/main.js"></script>
     <script>
-     document.addEventListener("DOMContentLoaded", () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const postFile = urlParams.get("post");
-  const postContainer = document.getElementById("post-content");
-
-  if (!postFile) {
-    postContainer.innerHTML = `<p>No post found.</p>`;
-    return;
-  }
-
-  fetch(postFile)
-    .then(response => {
-      if (!response.ok) throw new Error("Post not found");
-      return response.text();
-    })
-    .then(markdown => {
-      const frontMatterEndIndex = markdown.indexOf("---", 3);
-      if (frontMatterEndIndex === -1) throw new Error("Invalid front matter");
-      
-      const frontMatter = markdown.slice(0, frontMatterEndIndex);
-      const content = markdown.slice(frontMatterEndIndex + 3).trim();
-      const parsedContent = marked.parse(content);
-      const metaData = parseFrontMatter(frontMatter);
-      
-      postContainer.innerHTML = `
-
-        <div class="container">
-          ${metaData.featured_image ? `<div class="frame"><img class="cen" src=${metaData.featured_image} alt="${metaData.title}"></div>` : ""}
-          <h1 class="title1" id="title">${metaData.title || "Untitled Post"}</h1>
-          <p class="date">${metaData.date || "Unknown Date"}</p>
-          <div class="content">${parsedContent}</div>
-          <a href="blog.html" class="back-button">Back to Blog</a>
-        </div>
-      `;
-    })
-    .catch(error => {
-      console.error("Error loading post:", error);
-      postContainer.innerHTML = `<p>Error loading post. Please try again later.</p>`;
-    });
-});
-
-function parseFrontMatter(frontMatter) {
-  const data = {};
-  frontMatter.split("\n").forEach(line => {
-    const match = line.match(/(\w+):\s*(.*)/);
-    if (match) data[match[1].trim()] = match[2].trim();
-  });
-  return data;
-}
-
-    </script>
+      document.addEventListener("DOMContentLoaded", () => {
+   const urlParams = new URLSearchParams(window.location.search);
+   const postFile = urlParams.get("post");
+   const postContainer = document.getElementById("post-content");
+ 
+   if (!postFile) {
+     postContainer.innerHTML = `<p>No post found.</p>`;
+     return;
+   }
+ 
+   fetch(postFile)
+     .then(response => {
+       if (!response.ok) throw new Error("Post not found");
+       return response.text();
+     })
+     .then(markdown => {
+       const frontMatterEndIndex = markdown.indexOf("---", 3);
+       if (frontMatterEndIndex === -1) throw new Error("Invalid front matter");
+       
+       const frontMatter = markdown.slice(0, frontMatterEndIndex);
+       const content = markdown.slice(frontMatterEndIndex + 3).trim();
+       const parsedContent = marked.parse(content);
+       const metaData = parseFrontMatter(frontMatter);
+       
+       postContainer.innerHTML = `
+ 
+         <div class="container">
+           ${metaData.featured_image ? `<div class="frame"><img class="cen" src=${metaData.featured_image} alt="${metaData.title}"></div>` : ""}
+           <h1 class="title1" id="title">${metaData.title || "Untitled Post"}</h1>
+           <p class="date">${metaData.date ? metaData.date.substring(1, 11) : "Unknown Date"}</p>
+           <div class="content">${parsedContent}</div>
+         </div>
+       `;
+     })
+     .catch(error => {
+       console.error("Error loading post:", error);
+       postContainer.innerHTML = `<p>Error loading post. Please try again later.</p>`;
+     });
+ });
+ 
+ function parseFrontMatter(frontMatter) {
+   const data = {};
+   frontMatter.split("\n").forEach(line => {
+     const match = line.match(/(\w+):\s*(.*)/);
+     if (match) {
+       let key = match[1].trim();
+       let value = match[2].trim();
+       
+       // Extract only characters from index 1 to 11
+       if (key.toLowerCase() === "date") {
+         value = value.substring(0, 11);
+       }
+ 
+       data[key] = value;
+     }
+   });
+   return data;
+ }
+ 
+ </script>
+ 
+ 
     <script src="post.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.7/marked.min.js" integrity="sha512-rPuOZPx/WHMHNx2RoALKwiCDiDrCo4ekUctyTYKzBo8NGA79NcTW2gfrbcCL2RYL7RdjX2v9zR0fKyI4U4kPew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

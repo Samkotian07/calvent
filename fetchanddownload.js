@@ -15,32 +15,42 @@ const API_URL = "https://crazy-haibt.173-209-53-178.plesk.page/wp-json/wp/v2/pos
 
 async function fetchAndStorePosts() {
     try {
-        // ✅ Clear the posts folder before fetching
-        await fs.emptyDir(BLOG_DIR);
-        console.log("Cleared posts folder.");
-
-        // Ensure required directories exist
+        // Ensure directories exist
         await fs.ensureDir(BLOG_DIR);
         await fs.ensureDir(IMAGE_DIR);
 
+        // Fetch posts from WordPress
         const { data: posts } = await axios.get(API_URL);
-
         if (posts.length === 0) {
             console.log("No posts found in WordPress API.");
             return;
         }
 
-        for (const post of posts) {
+        // Store the latest slugs
+        const latestSlugs = new Set(posts.map(post => slugify(post.slug, { lower: true, strict: true })));
+
+        // Remove posts that no longer exist in WordPress
+        const existingFiles = await fs.readdir(BLOG_DIR);
+        await Promise.all(existingFiles.map(async (file) => {
+            const slug = path.basename(file, ".md");
+            if (!latestSlugs.has(slug)) {
+                await fs.remove(path.join(BLOG_DIR, file));
+                console.log(`Deleted: ${file} (No longer exists in WordPress)`);
+            }
+        }));
+
+        // Process and save each post
+        await Promise.all(posts.map(async (post) => {
             let imageUrl = "";
             let localImagePath = "";
 
+            // Fetch and download image
             if (post._embedded?.["wp:featuredmedia"]?.[0]?.source_url) {
                 imageUrl = post._embedded["wp:featuredmedia"][0].source_url;
                 localImagePath = await downloadImage(imageUrl);
-            } else {
-                console.log(`No featured image found for post: ${post.slug}`);
             }
 
+            // Create Markdown content
             const markdownContent = `---
 title: "${post.title.rendered.replace(/"/g, '\\"')}"
 slug: "${post.slug}"
@@ -49,11 +59,13 @@ date: "${post.date}"
 ---
 ${convert(post.content.rendered)}`;
 
+            // Save post as Markdown
             const safeSlug = slugify(post.slug, { lower: true, strict: true });
             const filePath = path.join(BLOG_DIR, `${safeSlug}.md`);
             await fs.writeFile(filePath, markdownContent);
             console.log(`Saved: ${safeSlug}.md`);
-        }
+        }));
+
     } catch (error) {
         console.error("Error fetching posts:", error);
     }
@@ -64,10 +76,16 @@ async function downloadImage(imageUrl) {
         const fileName = path.basename(imageUrl);
         const filePath = path.join(IMAGE_DIR, fileName);
 
+        // Skip downloading if the image already exists
+        if (await fs.pathExists(filePath)) {
+            console.log(`Image already exists: ${fileName}`);
+            return `./image/${fileName}`;
+        }
+
         const { data } = await axios.get(imageUrl, { responseType: "arraybuffer" });
         await fs.writeFile(filePath, Buffer.from(data));
-
         console.log(`Downloaded: ${fileName}`);
+
         return `./image/${fileName}`;
     } catch (error) {
         console.error(`Error downloading image ${imageUrl}:`, error);
