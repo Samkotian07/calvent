@@ -52,7 +52,7 @@
 @media screen and (max-width: 480px){
     .frame {
         position: relative;
-        margin: 18vh auto -104px; /* Push the element down by 50% of the viewport height */
+        margin: 9vh auto -65px; /* Push the element down by 50% of the viewport height */
         transform: translateY(-50%); /* Pull it back up by 50% of its height */
         display: flex;
         justify-content: center;
