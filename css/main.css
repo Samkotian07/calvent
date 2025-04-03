@@ -1377,7 +1377,12 @@ font-size: 30px;  opacity: 0;
   display: block;
 }
 
-
+@media screen and (max-width: 768px) {
+  .stats .stats-item {
+    width: 48%; /* Two items per row with some spacing */
+    margin: 1%; /* Add spacing between items */
+  }
+}
  .testimonial-img {
   width: 90px;
   border-radius: 50px;

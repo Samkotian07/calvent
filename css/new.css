@@ -226,3 +226,11 @@
 .CFO{
   width: 75%;
 }
+
+.details {
+  display: flex; /* Enable Flexbox */
+  flex-direction: row; /* Arrange content in a row */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically (optional) */
+  gap: 20px; /* Add spacing between items (optional) */
+}

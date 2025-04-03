@@ -21,6 +21,8 @@
 
 .content{
     color: rgb(15, 15, 15);
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .frame {
@@ -116,20 +118,21 @@
     }
     
 }
-
 /* Share Buttons */
 .share-buttons {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allow wrapping if needed */
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 10px; /* Add spacing between buttons */
   margin-top: 4rem;
 }
 
 .share-buttons p {
   margin: 0;
   font-weight: bold;
+  width: 100%; /* Ensure the text spans the full width */
+  text-align: center; /* Center-align the text */
 }
 
 .share-btn {
@@ -147,14 +150,15 @@
 }
 
 .share-btn:hover {
-  background-color:#752995;
+  background-color: #752995;
   color: white;
 }
 
 /* Responsive Design */
 @media (max-width: 600px) {
   .share-buttons {
-    justify-content: center;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: center; /* Center the buttons */
     text-align: center;
   }
 
@@ -165,10 +169,15 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .share-buttons {
-    gap: 8px;
-    flex-direction: column;
+    flex-wrap: wrap; /* Allow wrapping for very small screens */
+    justify-content: center; /* Center the buttons */
+    gap: 4px; /* Reduce gap between buttons */
+  }
+
+  .share-buttons p {
+    display: none;
   }
 
   .share-btn {
