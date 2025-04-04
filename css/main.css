@@ -435,7 +435,25 @@ body {
 .controls {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.arrow {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #752995;
+  padding: 0px 10px;
+  border: 1px solid #752995;
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.arrow:hover {
+  background-color: #752995;
+  color: white;
 }
 .dot {
   height: 10px;

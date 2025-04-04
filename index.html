@@ -730,12 +730,14 @@ Led by Sanath, our founder, Calvent brings years of experience in guiding busine
               <i class="bi bi-quote quote-icon-right"></i>
             </p>
           </div>
-            <div class="controls">
-                <span class="dot active" onclick="currentSlide(0)"></span>
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-            </div>
+          <div class="controls">
+            <span class="arrow left-arrow" onclick="prevTestimonial()">&lt;</span>
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="arrow right-arrow" onclick="nextTestimonial()">&gt;</span>
+        </div>
           </div>
         </div>
         <script>
@@ -753,6 +755,10 @@ Led by Sanath, our founder, Calvent brings years of experience in guiding busine
               index = (index + 1) % 4;
               showTestimonial(index);
           }
+          function prevTestimonial() {
+              index = (index - 1 + 4) % 4; // Loop back to the last testimonial if index goes below 0
+              showTestimonial(index);
+}
           function currentSlide(n) {
               showTestimonial(n);
           }
@@ -895,7 +901,6 @@ Led by Sanath, our founder, Calvent brings years of experience in guiding busine
                 <div class="blog-info">
                   <p>${post.date ? post.date.substring(0, 10) : "Unknown Date"}</p>
                   <h3><a href="blog-single.html?post=${encodeURIComponent(post.file)}">${post.title}</a></h3>
-                  <a href="blog-single.html?post=${encodeURIComponent(post.file)}" class="read-more">Read More</a>
                 </div>
               `;
               postsContainer.appendChild(postCard);

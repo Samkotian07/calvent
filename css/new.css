@@ -229,8 +229,26 @@
 
 .details {
   display: flex; /* Enable Flexbox */
-  flex-direction: row; /* Arrange content in a row */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically (optional) */
-  gap: 20px; /* Add spacing between items (optional) */
+  justify-content: space-around; /* Space out items horizontally */
+  align-items: flex-start; /* Align items at the top */
+  gap: 20px; /* Add spacing between items */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.details .col-md-3 {
+  flex: 1; /* Allow items to grow and take equal space */
+  min-width: 200px; /* Set a minimum width for each item */
+}
+
+/* Responsive Design for Mobile Screens */
+@media screen and (max-width: 768px) {
+  .details {
+      flex-direction: column; /* Stack items vertically */
+      align-items: center; /* Center items horizontally */
+  }
+
+  .details .col-md-3 {
+      width: 100%; /* Make each item take full width */
+      text-align: center; /* Center-align the text */
+  }
 }

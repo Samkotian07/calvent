@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="blog-info">
             <p>${formattedDate}</p>
             <h3><a href="blog-single.html?post=${encodeURIComponent(post.file)}">${post.title}</a></h3>
-            <a href="blog-single.html?post=${encodeURIComponent(post.file)}" class="read-more">Read More</a>
           </div>
         `;
         postsContainer.appendChild(postCard);
