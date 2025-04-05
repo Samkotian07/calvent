@@ -82,6 +82,13 @@
     margin-top: 5%;
 }
 
+@media screen and (max-width: 768px){
+    .title1{
+        font-size: 30px;
+    }
+  
+}
+
 .back-button{
     position: relative;
     left: 25em;
