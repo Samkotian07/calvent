@@ -177,18 +177,18 @@
             <div class="details">
               <div class="col-md-3">
                 <p>
-                  <span>Address:</span>   Puttur, Karnataka 574201
+                  <span>Address:</span> #6-141/1(4) Shalini Behind Capitanio School, Kankanady, Mangalore 575002
                 </p>
               </div>
               <div class="col-md-3">
                 <p>
-                  <span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a>
+                  <span>Phone:</span> <a href="tel://9175687155">+91 9175687155</a>
                 </p>
               </div>
               <div class="col-md-3">
                 <p>
                   <span>Email:</span>
-                  <a href="mailto:info@yoursite.com">info@yoursite.com</a>
+                  <a href="mailto:namaste@calvent.in">namaste@calvent.in</a>
                 </p>
               </div>
             </div>
@@ -196,36 +196,39 @@
           </div>
           <div class="row block-9">
             <div class="col-md-6 pr-md-5">
-              <form action="#">
+              <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="6a2aaeef-875a-451c-b2a1-a3b743b8006d">
                 <div class="col-md-12 mb-4">
                   <h2 class="h4">Send Us A Message</h2>
                 </div>
                 <div class="form-group">
                   <input
                     type="text"
+                    name="name"
                     class="form-control"
                     placeholder="Your Name"
-                  />
+                    required>
                 </div>
                 <div class="form-group">
                   <input
                     type="text"
+                    name="email"
                     class="form-control"
                     placeholder="Your Email"
-                  />
+                    required>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Subject" />
+                  <input name="subject" type="text" class="form-control" placeholder="Subject" required>
                 </div>
                 <div class="form-group">
                   <textarea
-                  
-                    name=""
+                    name="message"
                     id=""
                     cols="30"
                     rows="7"
                     class="form-control"
                     placeholder="Message"
+                    requireds
                   ></textarea>
                 </div>
                 <div class="form-group">
@@ -239,7 +242,7 @@
             </div>
   
             <div class="col-md-6 rel map" id="map">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112612.00581762494!2d74.77007130007422!3d12.923146607058982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a4c37bf488f%3A0x827bbc7a74fcfe64!2sMangaluru%2C%20Karnataka!5e1!3m2!1sen!2sin!4v1739527447858!5m2!1sen!2sin" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15557.858809569552!2d74.8201118871582!3d12.877812899999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a4533623225%3A0xff44a87fa4083a10!2sShalini%20Enclave!5e0!3m2!1sen!2sin!4v1745312042482!5m2!1sen!2sin"" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
@@ -252,10 +255,10 @@
           <img src="assets/img/logo.png" alt="Logo" class="footerlogo" />
           <p>
            <!--- A108 Adam Street--> <br />
-            Puttur, Karnataka 574201 <br />
+           Shalini Behind Capitanio School, Kankanady, Mangalore <br />
           </p>
-          <p><strong>Phone:</strong> +1 5589 55488 55</p>
-          <p><strong>Email:</strong> info@example.com</p>
+          <p ><strong>Phone:</strong><a href="tel://9175687155">+91 9175687155</a></p>
+          <p ><strong>Email:</strong> <a href="mailto:namaste@calvent.in"> namaste@calvent.in</a></p>
           <div class="social-links d-flex mt-4">
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
@@ -286,10 +289,14 @@
           <h3>Newsletter</h3>
           <p class="subp">Far far away, behind the word mountains, far from the countries.</p>
           <div class="subscribe-box">
-            <input type="email" id="email" placeholder="Enter your email">
-            <button onclick="subscribe()">
-              <i class="bi bi-send"></i> <!-- Unicode envelope icon -->
-            </button>
+            <form action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="6a2aaeef-875a-451c-b2a1-a3b743b8006d">
+              <input name="email" type="email" id="email" placeholder="Enter your email">
+              <button onclick="subscribe()" type="submit"
+              value="Send Message">
+                <i class="bi bi-send"></i> <!-- Unicode envelope icon -->
+              </button>
+            </form>
         </div>
         </div>
       </div>

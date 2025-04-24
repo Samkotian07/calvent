@@ -273,8 +273,8 @@
                  <!--- A108 Adam Street--> <br />
                   Puttur, Karnataka 574201 <br />
                 </p>
-                <p><strong>Phone:</strong> +1 5589 55488 55</p>
-                <p><strong>Email:</strong> info@example.com</p>
+                <p><strong>Phone:</strong><a href="tel://9175687155"> +91 9175687155</a></p>
+          <p><strong>Email:</strong> <a href="mailto:namaste@calvent.in">namaste@calvent.in</a></p>
                 <div class="social-links d-flex mt-4">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -305,10 +305,14 @@
                 <h3>Newsletter</h3>
                 <p class="subp">Far far away, behind the word mountains, far from the countries.</p>
                 <div class="subscribe-box">
-                  <input type="email" id="email" placeholder="Enter your email">
-                  <button onclick="subscribe()">
-                    <i class="bi bi-send"></i> <!-- Unicode envelope icon -->
-                  </button>
+                  <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="6a2aaeef-875a-451c-b2a1-a3b743b8006d">
+                    <input name="email" type="email" id="email" placeholder="Enter your email">
+                    <button onclick="subscribe()" type="submit"
+                    value="Send Message">
+                      <i class="bi bi-send"></i> <!-- Unicode envelope icon -->
+                    </button>
+                  </form>
               </div>
               </div>
             </div>
